@@ -19,7 +19,7 @@ class t1_child extends t1_parent {
     // метода getAge
 }
 
-public class t1_1 {
+public class t01_1_1 {
     public static void main(String[] args) {
         t1_parent parent = new t1_parent();
         System.out.println("parent age: " + String.valueOf(parent.getAge()));
