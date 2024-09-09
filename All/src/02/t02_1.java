@@ -1,11 +1,12 @@
 // названия классов содержат нумерацию практик в лекции
 
-class t02_1_1 {
+class t02_1_1 {//практика #1
+
     static public void main(String[] args) {
         byte b0 = 0, b1 = -128, b2 = 127;
         short s0 = 0, s1 = -32768, s2 = 32767;
         int i0 = 0, i1 = -2147483648, i2 = 2147483647;
-        long l0 = 0, l1 = -100000, l2 = 200000;
+        long l0 = 0, l1 = -1000000000, l2 = 2000000000;
 
         float f0 = 0.f, f1 = 3.14f;
         double d0 = 0, d1 = 2.7182;
@@ -38,8 +39,8 @@ class t02_1_4 {
     static public void main(String[] args) {
         String name = "Иван", surname = "Иванов";
         String fullName = name + ' ' + surname;
-        // name = String
-        // ' '  = Char
+        // name = String - объект
+        // ' '  = Char - базовый тип
         System.out.println(fullName);
     }
 }
@@ -47,20 +48,24 @@ class t02_1_4 {
 class t02_1_5 {
     static public void main(String[] args) {
         float pi = 3.14f;
-        float pi2 = pi * 2; // умножение float int -> float, так как выполняется
-        // расширение к максимальному типу в выражении float
+        float pi2 = pi * 2; // умножение float int -> float, так как
+        // float больший
 
         int k1 = 3;
         double k2 = 4;
         double k12 = k1 / k2;
-        // деление int / double ->float, расширение к максимальному double
+        // деление int / double -> double, расширение к большему double
     }
 }
 
 class t02_1_6 {
     static public void main(String[] args) {
         int i = 95;
+        float pi = 3.14f;
+
         short si = (short) i;
+        byte bi = (byte) (i % 10);
+        float di = (float) (3.5 * pi);
     }
 }
 
@@ -79,6 +84,7 @@ class t02_1_7 {
 class t02_1_8 {
     static public void main(String[] args) {
         int a = 5;
-        var c = (byte) a + 4;
+        var c = (byte) a + 4; // var разворачивается в byte из-за явного преобразования
+        var k = 5/6.5; // var разворачивается в double из-за результата деления int / double -> double
     }
 }
