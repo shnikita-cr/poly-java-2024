@@ -1,3 +1,5 @@
+package ch_01.sect_01;
+
 class t1_parent {
     protected int age;
 
@@ -19,7 +21,7 @@ class t1_child extends t1_parent {
     // метода getAge
 }
 
-public class t01_1_1 {
+public class task_01_01 {
     public static void main(String[] args) {
         t1_parent parent = new t1_parent();
         System.out.println("parent age: " + String.valueOf(parent.getAge()));
