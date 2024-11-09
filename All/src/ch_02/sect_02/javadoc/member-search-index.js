@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"ch_02.sect_02","c":"task_02_02_01","l":"add(int, int)","url":"add(int,int)"},{"p":"ch_02.sect_02","c":"task_02_02_01","l":"divide(int, int)","url":"divide(int,int)"},{"p":"ch_02.sect_02","c":"task_02_02_01","l":"task_02_02_01()","url":"%3Cinit%3E()"}]
