@@ -1,6 +1,5 @@
 package ch_02.sect_08;
 
-import javax.rmi.ssl.SslRMIClientSocketFactory;
 import java.util.Arrays;
 
 public class task_02_08_02 {
