@@ -1,12 +1,14 @@
 public class GCDemoLarge {
     private static final int SIZE = 10_000_000;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.out.println("\t\tStarting GC Demo...");
 
         createObjects();
         System.out.println("Iteration completed, waiting for GC.");
+//        System.gc();
 
+        Thread.sleep(5000);
 
         System.out.println("\t\tGC Demo completed.");
     }
