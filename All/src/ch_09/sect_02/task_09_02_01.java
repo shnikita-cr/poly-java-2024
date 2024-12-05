@@ -21,9 +21,9 @@ public class task_09_02_01 {
             int divResult = makeDivistion(a, b);
             System.out.println(divResult);
         } catch (ArithmeticException e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage()); //обработанное арифметическое исключение (деление на ноль)
         }
         List<Integer> list = new ArrayList<Integer>(List.of(a, b));
-        printList(list);
+        printList(list); // необработанное исключение выход за границы массива
     }
 }

@@ -13,7 +13,7 @@ public class task_09_05_01 {
         if (i == j) {
             System.out.println(i);
         } else
-            throw new MyException("Error: arguments are not equal");
+            throw new MyException("Error: arguments are not equal"); // генерируем исключение с комментарием
     }
 
     public static void main(String[] args) {
@@ -21,8 +21,8 @@ public class task_09_05_01 {
         int i = sc.nextInt();
         int j = sc.nextInt();
         try {
-            performOperation(i, j);
-        } catch (MyException e) {
+            performOperation(i, j); // печатаем если i == j иначе Exception
+        } catch (MyException e) { // обрабатываем Exception
             System.out.println(e.getMessage());
         }
     }
