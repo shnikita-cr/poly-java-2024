@@ -1,6 +1,6 @@
 package ch_02.sect_03;
 
-class task_02_03_2 {
+class task_02_03_02 {
     static class A {
     }
 

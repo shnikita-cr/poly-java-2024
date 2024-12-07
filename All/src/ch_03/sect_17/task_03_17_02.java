@@ -24,7 +24,7 @@ class Cat extends Animal {
 }
 
 public class task_03_17_02 {
-    class mainExtends{
+    class mainExtends {
         //метод для работы с классом Animal или подклассом Animal, происходит проверка типов
         //тк в методе используются методы Animal
         public void makeAllSounds(List<? extends Animal> animals) {
@@ -47,7 +47,7 @@ public class task_03_17_02 {
 
     //---------------------------------------------------------------
 
-    class mainSuper{
+    class mainSuper {
         //метод для работы с классом Dog или его суперклассом, проверка типов
         public void addDogs(List<? super Dog> animals) {
             animals.add(new Dog());

@@ -34,7 +34,6 @@ public class task_05_01_03 {
         }
     }
 
-
     public static void main(String[] args) {
         Inner inner = new Inner();
         System.out.println(inner); //Inner{a=0, b=0.0, c=0.0, d='null'}

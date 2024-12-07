@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class task_09_02_01 {
-
-    static int makeDivistion(int a, int b) {
+    static int makeDivision(int a, int b) {
         return a / b;
     }
 
@@ -18,7 +17,7 @@ public class task_09_02_01 {
     public static void main(String[] args) {
         int a = 5, b = 0;
         try {
-            int divResult = makeDivistion(a, b);
+            int divResult = makeDivision(a, b);
             System.out.println(divResult);
         } catch (ArithmeticException e) {
             System.out.println(e.getMessage()); //обработанное арифметическое исключение (деление на ноль)

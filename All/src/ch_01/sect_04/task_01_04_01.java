@@ -1,4 +1,4 @@
-package ch_01.sect_01;
+package ch_01.sect_04;
 
 //ниже приведен пример нарушения принципа:
 class RectangleWrong {

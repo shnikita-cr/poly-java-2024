@@ -1,6 +1,6 @@
 package ch_02.sect_03;
 
-class task_02_03_1 {
+class task_02_03_01 {
     public static void main(String[] args) {
         //Операторы присваивания
         int x = 10;         // =

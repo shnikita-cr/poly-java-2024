@@ -2,15 +2,17 @@ package ch_05.sect_02;
 
 
 interface I {
-
     static int a = 0;
 
     public static class Nested {
-
         public static void func() {
             System.out.println("func");
             System.out.println("a == " + a);
         }
+    }
+
+    public default void callFunc() {
+        Nested.func();
     }
 }
 

@@ -2,14 +2,14 @@ package ch_09.sect_05;
 
 import java.util.Scanner;
 
-class MyException extends RuntimeException {
+class MyException extends Exception {
     public MyException(String message) {
         super(message);
     }
 }
 
 public class task_09_05_01 {
-    public static void performOperation(int i, int j) {
+    public static void performOperation(int i, int j) throws MyException {
         if (i == j) {
             System.out.println(i);
         } else

@@ -14,4 +14,3 @@ public class task_02_07_02 {
         }
     }
 }
-

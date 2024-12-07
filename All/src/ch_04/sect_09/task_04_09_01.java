@@ -1,5 +1,7 @@
 package ch_04.sect_09;
 
+import java.util.Objects;
+
 public class task_04_09_01 {
     public static void main(String[] args) {
         Test t1 = new Test();
@@ -24,8 +26,12 @@ class Test {
 
     @Override
     public boolean equals(Object obj) {
+        /*
+        метод возвращает true если совпадают типы объектов и
+        все значения соответствующих полей совпадают
+         */
         if (obj instanceof Test) {
-            return (id == ((Test) obj).id)
+            return (Objects.equals(id, ((Test) obj).id))
                     && (name.equals(((Test) obj).name))
                     && (c == ((Test) obj).c);
         }

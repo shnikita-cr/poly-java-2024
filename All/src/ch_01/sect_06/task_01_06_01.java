@@ -1,8 +1,8 @@
-package ch_01.sect_03;
+package ch_01.sect_06;
 
 import java.util.Scanner;
 
-public class task_01_03 {
+public class task_01_06_01 {
     static public void main(String[] args) {
         System.out.print("Введите Ваше имя: ");
         Scanner scan = new Scanner(System.in);

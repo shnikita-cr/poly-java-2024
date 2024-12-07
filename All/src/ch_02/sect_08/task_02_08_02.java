@@ -20,7 +20,6 @@ public class task_02_08_02 {
         int[] numbers2 = {1, 2, 3, 50, 44};
         System.out.println("equals arrays? " + Arrays.equals(numbers, numbers2));//false
 
-
         //compare
         int[] array1 = {6, 7, 8, 11, 18, 8, 2, 5};
         int[] array2 = {3, 5, 9, 13, 28, 6, 8, 9};

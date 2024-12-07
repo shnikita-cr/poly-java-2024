@@ -18,22 +18,21 @@ class Dog extends Animal {
     String breed;
 
     Dog(String name, String breed) {
-        super(name);
+        super(name); //обращение к конструктору
         this.breed = breed;
     }
 
     @Override
     void sound() {
-        super.sound();
+        super.sound(); //обращение к методу
         System.out.println("Bark! Bark!");
     }
 
     void displayInfo() {
-        System.out.println("Name: " + super.name);
-        System.out.println("Breed: " + this.breed);
+        System.out.println("Name: " + super.name); //обращение к полю
+        System.out.println("Breed: " + this.breed); //обращение к полю
     }
 }
-
 
 public class task_04_03_01 {
     public static void main(String[] args) {

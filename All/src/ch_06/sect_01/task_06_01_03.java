@@ -3,7 +3,6 @@ package ch_06.sect_01;
 public interface task_06_01_03 {
 }
 
-
 class B {
     protected interface I {
         /*

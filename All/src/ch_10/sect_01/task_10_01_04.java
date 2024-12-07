@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class task_10_01_04 {
     public static void main(String[] args) {
-        Scanner cin = new Scanner(System.in); // сканнер для считывания с консоли
+        Scanner cin = new Scanner(System.in); // сканер для считывания с консоли
         System.out.println("Enter file path: ");
         String path = cin.nextLine(); // просим пользователя ввести путь к файлу
         try (FileInputStream f = new FileInputStream(path)) { // объявляем файловый поток Внутри try()
@@ -18,7 +18,7 @@ public class task_10_01_04 {
             это упрощает работу с файлами и исключениями
             механизм называется Try with resources и доступен в Java в новых версиях
              */
-            Scanner fin = new Scanner(f); // сканнер для считывания с файла
+            Scanner fin = new Scanner(f); // сканер для считывания с файла
             while (fin.hasNextLine()) {
                 System.out.println(fin.nextLine()); //считывания файла построчно и вывод в консоль
             }
@@ -27,7 +27,8 @@ public class task_10_01_04 {
         } catch (Exception e) {
             System.out.println("Error reading file: " + e.getMessage());
         }
-/*        здесь файл (если был открытым) будет закрыт
+        /*
+        здесь файл (если был открытым) будет закрыт
         без AutoClosable необходимо было бы писать код закрытия файла с проверками:
         finally {
             if (f != null) {
@@ -37,6 +38,7 @@ public class task_10_01_04 {
                     e.printStackTrace();
                 }
             }
-        }*/
+        }
+        */
     }
 }
