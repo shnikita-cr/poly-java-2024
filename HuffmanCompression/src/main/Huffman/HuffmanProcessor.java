@@ -13,7 +13,7 @@ public class HuffmanProcessor {
         if (root == null) return;
 
         // found a leaf node
-        if (root.getLeft() == null && root.getRight() == null) {
+        if (root.isLeaf()) {
             huffmanMap.put(String.valueOf(root.getCh()), str);
         }
 
@@ -109,8 +109,12 @@ public class HuffmanProcessor {
 
     public static Map<String, String> buildMap(String content) {
         Node huffmanTree = buildHuffmanTree(content);
+        String startSymbol = "";
+        if (huffmanTree.isLeaf()) {
+            startSymbol = "0";
+        }
         Map<String, String> huffmanMap = new HashMap<>();
-        encode(huffmanTree, "\0", huffmanMap);
+        encode(huffmanTree, startSymbol, huffmanMap);
         return huffmanMap;
     }
 
