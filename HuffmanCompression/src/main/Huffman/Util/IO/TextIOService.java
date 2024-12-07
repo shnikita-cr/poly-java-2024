@@ -7,24 +7,20 @@ import java.util.Scanner;
 
 public class TextIOService implements IOService {
     @Override
-    public String read(String filename) {
-        try (FileInputStream f = new FileInputStream(filename)) {
+    public String read(String sourceFilename) {
+        try (FileInputStream f = new FileInputStream(sourceFilename)) {
             Scanner scanner = new Scanner(f);
             StringBuilder text = new StringBuilder();
             while (scanner.hasNext()) {
-                text.append(scanner.next());
+                text.append(scanner.nextLine());
             }
+            scanner.close();
             return text.toString();
         } catch (FileNotFoundException e) {
-            System.out.println("File not found: " + filename);
+            System.out.println("File not found: " + sourceFilename);
         } catch (IOException e) {
-            System.out.println("Error reading file: " + filename);
+            System.out.println("Error reading file: " + sourceFilename);
         }
         return "";
-    }
-
-    @Override
-    public void write(String source, String content) {
-
     }
 }
