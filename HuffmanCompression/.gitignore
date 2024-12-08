@@ -29,4 +29,7 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-!/tests/Main.class
+/tests/
+!/tests/test1.txt
+!/tests/test2.txt
+!/tests/test3.bin
