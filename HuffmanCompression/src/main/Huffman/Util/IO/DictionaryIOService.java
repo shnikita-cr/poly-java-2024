@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class DictionaryIOService {
     public Dictionary read(String sourceFilename) {
-        Map<String, String> huffmanMap = new HashMap<String, String>();
+        Map<String, String> huffmanMap = new HashMap<>();
         int offset = 0;
         try (FileInputStream f = new FileInputStream(sourceFilename)) {
             Scanner scanner = new Scanner(f);

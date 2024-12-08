@@ -4,11 +4,12 @@ import main.Huffman.Util.Dictionary;
 import main.Huffman.Util.IO.DictionaryIOService;
 import main.Huffman.Util.IO.IOService;
 
+import java.util.List;
 import java.util.Map;
 
 public class Huffman {
-    public static void compress(String filename, IOService readIOService, IOService writeIOService) {
-        String originalString = readIOService.read(filename);
+    public static void compress(String filename, IOService ioService) {
+        List<String> originalString = ioService.readList(filename);
         System.out.println("originalString   " + originalString);
 
         Map<String, String> huffmanMap = HuffmanProcessor.buildMap(originalString);
@@ -17,7 +18,7 @@ public class Huffman {
         String compressedString = HuffmanProcessor.compress(originalString, huffmanMap);
         System.out.println("compressedString " + compressedString);
 
-        int offset = writeIOService.write(filename + "b", compressedString);
+        int offset = ioService.write(filename + "c", compressedString);
         System.out.println("offset " + offset);
 
         DictionaryIOService dictionaryIOService = new DictionaryIOService();
@@ -25,8 +26,8 @@ public class Huffman {
         System.out.println("huffmanMap " + huffmanMap);
     }
 
-    public static void decompress(String filename, IOService readIOService, IOService writeIOService) {
-        String compressedString = readIOService.read(filename + "b");
+    public static void decompress(String filename, IOService ioService) {
+        String compressedString = ioService.readString(filename + "c");
         System.out.println("compressedString   " + compressedString);
 
         DictionaryIOService dictionaryIOService = new DictionaryIOService();
@@ -36,6 +37,6 @@ public class Huffman {
         String originalString = HuffmanProcessor.decompress(compressedString, dictionary);
         System.out.println("originalString   " + originalString);
 
-        writeIOService.write(filename+"o", originalString);
+        ioService.write(filename + "d", originalString);
     }
 }

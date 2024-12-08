@@ -1,16 +1,16 @@
 package main.Huffman.Util;
 
 public class Node {
-    private char ch;
-    private int freq;
+    private final String ch;
+    private final int freq;
     private Node left = null, right = null;
 
-    public Node(char ch, int freq) {
+    public Node(String ch, int freq) {
         this.ch = ch;
         this.freq = freq;
     }
 
-    public Node(char ch, int freq, Node left, Node right) {
+    public Node(String ch, int freq, Node left, Node right) {
         this.ch = ch;
         this.freq = freq;
         this.left = left;
@@ -21,7 +21,7 @@ public class Node {
         return left == null && right == null;
     }
 
-    public char getCh() {
+    public String getCh() {
         return ch;
     }
 
