@@ -1,5 +1,6 @@
 package main.Huffman;
 
+import main.Huffman.Util.Dictionary;
 import main.Huffman.Util.Node;
 
 import java.util.HashMap;
@@ -7,8 +8,6 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 public class HuffmanProcessor {
-    // traverse the Huffman Tree and store Huffman Codes
-    // in a map.
     private static void encode(Node root, String str, Map<String, String> huffmanMap) {
         if (root == null) return;
 
@@ -19,24 +18,6 @@ public class HuffmanProcessor {
 
         encode(root.getLeft(), str + "0", huffmanMap);
         encode(root.getRight(), str + "1", huffmanMap);
-    }
-
-    // traverse the Huffman Tree and decode the encoded string
-    private static int decode(Node root, int index, StringBuilder sb) {
-        if (root == null) return index;
-
-        // found a leaf node
-        if (root.getLeft() == null && root.getRight() == null) {
-            System.out.print(root.getCh());
-            return index;
-        }
-
-        index++;
-
-        if (sb.charAt(index) == '0') index = decode(root.getLeft(), index, sb);
-        else index = decode(root.getRight(), index, sb);
-
-        return index;
     }
 
     private static Node buildHuffmanTree(String text) {
@@ -79,34 +60,6 @@ public class HuffmanProcessor {
         return root;
     }
 
-    public static void buildHuffmanTsdree(String text) {
-//        // traverse the Huffman tree and store the Huffman codes in a map
-//        Map<Character, String> huffmanMap = new HashMap<>();
-//
-//        encode(root, "", huffmanMap);
-//
-//        // print the Huffman codes
-//        System.out.println("Huffman Codes are :\n");
-//        for (Map.Entry<Character, String> entry : huffmanMap.entrySet()) {
-//            System.out.println(entry.getKey() + " " + entry.getValue());
-//        }
-//
-//        System.out.println("\nOriginal string was :\n" + text);
-//
-//        // print encoded string
-//
-//
-//        System.out.println("\nEncoded string is :\n" + sb);
-//
-//        // traverse the Huffman Tree again and this time
-//        // decode the encoded string
-//        int index = -1;
-//        System.out.println("\nDecoded string is: \n");
-//        while (index < sb.length() - 2) {
-//            index = decode(root, index, sb);
-//        }
-    }
-
     public static Map<String, String> buildMap(String content) {
         Node huffmanTree = buildHuffmanTree(content);
         String startSymbol = "";
@@ -126,8 +79,16 @@ public class HuffmanProcessor {
         return sb.toString();
     }
 
-
-    public static String decompress(String string, Map<String, String> map) {
-        return null;
+    public static String decompress(String string, Dictionary dictionary) {
+        StringBuilder result = new StringBuilder();
+        StringBuilder currentSymbol = new StringBuilder();
+        for (int i = 0; i < string.length() - dictionary.offset(); i++) {
+            currentSymbol.append(string.charAt(i));
+            if (dictionary.map().containsKey(currentSymbol.toString())) {
+                result.append(dictionary.map().get(currentSymbol.toString()));
+                currentSymbol.setLength(0); //очистка текущей строчки
+            }
+        }
+        return result.toString();
     }
 }

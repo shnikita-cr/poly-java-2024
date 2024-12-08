@@ -16,6 +16,7 @@ public class Main {
                 Helper.printHelpInfo();
             }
         } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
             System.out.println("Wrong usage!");
             Helper.printHelpInfo();
         }
@@ -24,10 +25,13 @@ public class Main {
     static void compress(char mode, String filename) {
         switch (mode) {
             case 'b':
-                Huffman.compress(filename, new BinaryIOService());
+                BinaryIOService binaryIOService1 = new BinaryIOService();
+                Huffman.compress(filename, binaryIOService1, binaryIOService1);
                 break;
             case 't':
-                Huffman.compress(filename, new TextIOService());
+                TextIOService textIOService2 = new TextIOService();
+                BinaryIOService binaryIOService2 = new BinaryIOService();
+                Huffman.compress(filename, textIOService2, binaryIOService2);
                 break;
             default:
                 Helper.printHelpInfo();
@@ -37,10 +41,14 @@ public class Main {
     static void decompress(char mode, String filename) {
         switch (mode) {
             case 'b':
+                BinaryIOService binaryIOService1 = new BinaryIOService();
                 System.out.println("decompressing b" + filename);
+                Huffman.decompress(filename, binaryIOService1, binaryIOService1);
                 break;
             case 't':
-                Huffman.decompress(filename, new TextIOService());
+                TextIOService textIOService2 = new TextIOService();
+                BinaryIOService binaryIOService2 = new BinaryIOService();
+                Huffman.decompress(filename, binaryIOService2, textIOService2);
                 break;
             default:
                 Helper.printHelpInfo();

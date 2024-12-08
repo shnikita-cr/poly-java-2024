@@ -2,6 +2,7 @@ package main.Huffman.Util.IO;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -22,5 +23,16 @@ public class TextIOService implements IOService {
             System.out.println("Error reading file: " + sourceFilename);
         }
         return "";
+    }
+
+    @Override
+    public int write(String destinationFilename, String textString) {
+        try (FileOutputStream f = new FileOutputStream(destinationFilename)) {
+            f.write(textString.getBytes());
+        } catch (Exception e) {
+            System.out.println("Error writing data to file: " + destinationFilename);
+            System.out.println(e.getMessage());
+        }
+        return 0;
     }
 }
