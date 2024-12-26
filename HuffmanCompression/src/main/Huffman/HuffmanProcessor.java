@@ -19,8 +19,6 @@ public class HuffmanProcessor {
     }
 
     private static Node buildHuffmanTree(List<String> stringList) {
-        // count frequency of appearance of each character
-        // and store it in a map
         Map<String, Integer> freq = new HashMap<>();
         for (String string : stringList) {
             if (!freq.containsKey(string)) {
@@ -28,32 +26,16 @@ public class HuffmanProcessor {
             }
             freq.put(string, freq.get(string) + 1);
         }
-
-        // Create a priority queue to store live nodes of Huffman tree
-        // Notice that highest priority item has the lowest frequency
         PriorityQueue<Node> pq = new PriorityQueue<>((l, r) -> l.getFreq() - r.getFreq());
-
-        // Create a leaf node for each character and add it
-        // to the priority queue.
         for (Map.Entry<String, Integer> entry : freq.entrySet()) {
             pq.add(new Node(entry.getKey(), entry.getValue()));
         }
-
-        // do till there is more than one node in the queue
         while (pq.size() != 1) {
-            // Remove the two nodes of highest priority
-            // (lowest frequency) from the queue
             Node left = pq.poll();
             Node right = pq.poll();
-
-            // Create a new internal node with these two nodes as children
-            // and with frequency equal to the sum of the two nodes
-            // frequencies. Add the new node to the priority queue.
             int sum = Objects.requireNonNull(left).getFreq() + Objects.requireNonNull(right).getFreq();
             pq.add(new Node("\0", sum, left, right));
         }
-
-        // root stores pointer to root of Huffman Tree
         return pq.peek();
     }
 
