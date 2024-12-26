@@ -34,7 +34,6 @@ public class DictionaryIOService {
 
     public void write(String destinationFilename, Dictionary dictionary) {
         try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(destinationFilename))) {
-            // Сохраняем offset (32 бита)
             dos.writeInt(dictionary.offset());
 
             for (Map.Entry<String, String> entry : dictionary.map().entrySet()) {
@@ -45,7 +44,7 @@ public class DictionaryIOService {
 
                 dos.writeByte(code.length());
 
-                dos.writeInt(Integer.parseInt(code, 2)); // Используем минимально необходимое количество бит
+                dos.writeInt(Integer.parseInt(code, 2));
             }
         } catch (Exception e) {
             System.out.println("Error writing dictionary to file: " + destinationFilename);
